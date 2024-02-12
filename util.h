@@ -12,22 +12,26 @@
  */
 template <typename T>
 std::set<T> setIntersection(std::set<T>& s1, std::set<T>& s2)
-{
+{  
+  std::set<T> inter;
 
-
-
-
-
+  for(typename std::set<T>::iterator it=s1.begin(); it != s1.end(); ++it){//for each in s1
+  if(s2.find(*it)!=s2.end()){ //if its contained in s2 (logN)
+    inter.insert(*it); //insert it to intersection O(1)
+    }
+  }
+  return inter; 
 }
+
 template <typename T>
 std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
-{
-
-
-
-
-
+{ 
+  std::set<T> uni = s2;
+  uni.insert(s1.begin(), s1.end());
+  return uni;
 }
+
+
 
 /***********************************************/
 /* Prototypes of functions defined in util.cpp */
